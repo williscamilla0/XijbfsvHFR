@@ -3,7 +3,6 @@
 version: 2.1
 
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
-# See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   # The python orb contains a set of prepackaged CircleCI configuration you can use repeatedly in your configuration files
   # Orb commands and jobs help you with common scripting around a language/tool
@@ -14,7 +13,6 @@ orbs:
 # -------------------------------------------------------------------------------------
 # Re-usable commands
 # -------------------------------------------------------------------------------------
-setup_env: &setup_env
   - run:
       name: Setup environment
       command: |
@@ -34,7 +32,6 @@ setup_env: &setup_env
         git submodule sync
         git submodule update --init
         echo 'export PYTHONPATH=$PWD/python:$PYTHONPATH' >> $BASH_ENV
-        echo 'export PATH=/usr/local/cuda-11.4/bin:$PATH' >> $BASH_ENV
         echo 'export CI_FLAG=CIRCLECI' >> $BASH_ENV
         echo 'export CACHE_DIR=$PWD/tests/ci_profile_cache' >> $BASH_ENV
 
